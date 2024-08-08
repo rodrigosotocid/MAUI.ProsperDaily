@@ -3,7 +3,8 @@
     x:Class="MAUI.ProsperDaily.MVVM.Views.TransactionsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="TransactionPage">
+    Title="TransactionsPage"
+    NavigationPage.HasNavigationBar="False">
 
 
     <Grid RowDefinitions=".15*, .15*, .70*">
@@ -23,29 +24,37 @@
 
                 <Label Text="Transaction Name" />
                 <Frame StyleClass="FrameBorder">
-                    <Entry Text="Netflix Subscription" />
+                    <Entry Text="{Binding Transaction.Name}" />
                 </Frame>
 
                 <Label StyleClass="MarginT15" Text="Amount" />
                 <Frame StyleClass="FrameBorder">
                     <Entry
                         Keyboard="Numeric"
-                        Text="13.55€"
+                        Text="{Binding Transaction.Amount}"
                         VerticalOptions="Center" />
                 </Frame>
 
                 <Label StyleClass="MarginT15" Text="Transaction Date" />
                 <Frame StyleClass="FrameBorder">
-                    <DatePicker />
+                    <DatePicker Date="{Binding Transaction.OperationDate}" />
                 </Frame>
 
-                <HorizontalStackLayout>
-                    <CheckBox IsChecked="True" />
-                    <Label Text="Is Income?" />
+                <HorizontalStackLayout VerticalOptions="Center">
+                    <CheckBox IsChecked="{Binding Transaction.IsIncome}" VerticalOptions="Center" />
+                    <Label Text="Is Income?" VerticalOptions="Center" />
                 </HorizontalStackLayout>
 
-                <Button StyleClass="MaginT15" Text="Save" />
-                <Button StyleClass="MaginT15, RedControl" Text="Cancel" />
+                <Button
+                    x:Name="Save"
+                    Clicked="Save_Clicked"
+                    StyleClass="MaginT15"
+                    Text="Save" />
+                <Button
+                    x:Name="Cancel"
+                    Clicked="Cancel_Clicked"
+                    StyleClass="MaginT15, RedControl"
+                    Text="Cancel and Back" />
 
             </VerticalStackLayout>
 

@@ -97,17 +97,17 @@ namespace MAUI.ProsperDaily.Repositories
                 if (item.Id != 0)
                 {
                     result = connection.Update(item);
-                    StatusMessage = $"**** {result} record(s) {actionMessage = "updated"}";
+                    StatusMessage = $"{result} record(s) {actionMessage = "updated"}";
                 }
                 else
                 {
                     result = connection.Insert(item);
-                    StatusMessage = $"**** {result} record(s) {actionMessage}";
+                    StatusMessage = $"{result} record(s) {actionMessage}";
                 }
             }
             catch (Exception ex)
             {
-                StatusMessage = $"**** Error: {ex.Message}";
+                StatusMessage = $"Error: {ex.Message}";
             }
         }
 

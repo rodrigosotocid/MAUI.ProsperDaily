@@ -1,10 +1,14 @@
-﻿using MAUI.ProsperDaily.MVVM.Views;
+﻿using MAUI.ProsperDaily.MVVM.Models;
+using MAUI.ProsperDaily.MVVM.Views;
+using MAUI.ProsperDaily.Repositories;
 
 namespace MAUI.ProsperDaily
 {
     public partial class App : Application
     {
-        public App()
+        public static BaseRepository<Transaction>? TransactionsRepo { get; private set; }
+
+        public App(BaseRepository<Transaction>? transactionsRepo)
         {
             if (Application.Current != null)
             {
@@ -17,9 +21,9 @@ namespace MAUI.ProsperDaily
 
             InitializeComponent();
 
-            //MainPage = new DashboardPage();
-            MainPage = new TransactionsPage();
-            //MainPage = new StatisticsPage();
+            TransactionsRepo = transactionsRepo;
+
+            MainPage = new NavigationPage(new DashboardPage());
         }
     }
 }

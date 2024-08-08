@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MAUI.ProsperDaily.MVVM.Models;
+using MAUI.ProsperDaily.Repositories;
+using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace MAUI.ProsperDaily
@@ -18,6 +20,8 @@ namespace MAUI.ProsperDaily
                     fonts.AddFont("LibreFranklin-Regular.ttf", "Regular");
                     fonts.AddFont("Roboto-Black.ttf", "Strong");
                 });
+
+            builder.Services.AddSingleton<BaseRepository<Transaction>>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
