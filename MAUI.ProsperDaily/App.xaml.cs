@@ -23,7 +23,8 @@ namespace MAUI.ProsperDaily
 
             TransactionsRepo = transactionsRepo;
 
-            MainPage = new NavigationPage(new DashboardPage());
+            //MainPage = new NavigationPage(new DashboardPage());
+            MainPage = new StatisticsPage();
         }
     }
 }
