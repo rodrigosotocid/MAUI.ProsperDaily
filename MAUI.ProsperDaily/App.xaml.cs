@@ -13,18 +13,14 @@ namespace MAUI.ProsperDaily
             if (Application.Current != null)
             {
                 Application.Current.UserAppTheme = AppTheme.Light;
-                this.RequestedThemeChanged += (s, e) =>
-                {
-                    Application.Current.UserAppTheme = AppTheme.Light;
-                };
+                this.RequestedThemeChanged += (s, e) => Application.Current.UserAppTheme = AppTheme.Light;
             }
-
             InitializeComponent();
 
             TransactionsRepo = transactionsRepo;
 
             //MainPage = new NavigationPage(new DashboardPage());
-            MainPage = new StatisticsPage();
+            MainPage = new AppContainer();
         }
     }
 }
