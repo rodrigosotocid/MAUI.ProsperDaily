@@ -67,7 +67,7 @@
             RowDefinitions=".1*, .9*"
             StyleClass="Margin15">
 
-            <Label Text="Transactions" />
+            <Label Text="Transactions" TextColor="Gray" />
 
             <CollectionView
                 Grid.Row="1"
@@ -107,7 +107,8 @@
                             <Label
                                 Grid.Row="1"
                                 StyleClass="SmallFont"
-                                Text="{Binding OperationDate, StringFormat='{0:MM/dd/yyyy}'}" />
+                                Text="{Binding HumanDate}"
+                                TextColor="Gray" />
 
                             <Label
                                 x:Name="lblIsIncome"

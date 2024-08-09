@@ -1,4 +1,5 @@
-﻿using MAUI.ProsperDaily.Abstractions;
+﻿using Humanizer;
+using MAUI.ProsperDaily.Abstractions;
 
 namespace MAUI.ProsperDaily.MVVM.Models
 {
@@ -8,5 +9,12 @@ namespace MAUI.ProsperDaily.MVVM.Models
         public decimal Amount { get; set; }
         public bool IsIncome { get; set; }
         public DateTime OperationDate { get; set; }
+        public string HumanDate
+        {
+            get
+            {
+                return OperationDate.Humanize();
+            }
+        }
     }
 }
